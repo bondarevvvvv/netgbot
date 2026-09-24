@@ -6,12 +6,15 @@ import base64
 from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
-from aiogram import Bot
+
 
 
 # Вставьте сюда токен вашего бота от @BotFather
-token = os.getenv("BOT_TOKEN") or os.getenv("TELEGRAM_BOT_TOKEN")
-bot = Bot(token=token)
+BOT_TOKEN = os.getenv("BOT_TOKEN") or os.getenv("TELEGRAM_BOT_TOKEN")
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN/TELEGRAM_BOT_TOKEN не найден в переменных окружения")
+
+bot = telebot.TeleBot(BOT_TOKEN)
 
 
 # ========== НАСТРОЙКИ АДМИНА ==========
