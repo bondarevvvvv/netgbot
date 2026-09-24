@@ -6,11 +6,13 @@ import base64
 from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
+from aiogram import Bot
+
 
 # Вставьте сюда токен вашего бота от @BotFather
-BOT_TOKEN = '8510845153:AAGUO5jg01h2NlL46VsD1f-7osYIBVTkxTQ'
+token = os.getenv("BOT_TOKEN") or os.getenv("TELEGRAM_BOT_TOKEN")
+bot = Bot(token=token)
 
-bot = telebot.TeleBot(BOT_TOKEN)
 
 # ========== НАСТРОЙКИ АДМИНА ==========
 ADMIN_ID = 821500372
